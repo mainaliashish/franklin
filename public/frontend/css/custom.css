@@ -1,0 +1,155 @@
+div#ttm-stickable-header-w {
+    background: lightgray;
+}
+
+footer.footer.widget-footer.clearfix {
+    background: indigo;
+}
+.featured-imagebox .featured-content .category,
+.featured-imagebox .featured-content .category a {
+    color: black;
+}
+a.team-name {
+    color: black;
+    font-size: 23px;
+    text-shadow: 1px 1px coral;
+    font-family: fantasy;
+}
+
+.ttm-service-single-content-area {
+    color: black;
+}
+
+a.team-name:hover {
+    color: red;
+}
+
+.section-title.style2 .title-header,
+.section-title.style2 .title-desc {
+    display: table-cell;
+    color: navy;
+    vertical-align: middle;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #f71735;
+    border-color: #f71735;
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #f71735;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.ttm-pagination {
+    display: block;
+    text-align: center;
+}
+body .site-main {
+    padding: 90px;
+    background-color: #fff;
+    position: relative;
+    z-index: 9;
+}
+
+.ttm-row.about-top-section {
+    padding: 25px;
+}
+
+.col-lg-3.widget-area.ttm-bgcolor-grey {
+    background: powderblue;
+}
+
+span.contact-country {
+    margin: 9px;
+    font-size: 21px;
+    text-shadow: 1px 1px lightcoral;
+}
+
+.featured-imagebox.featured-imagebox-post.box-shadow.contact-box {
+        background: lightcyan;
+        box-shadow: 2px 2px powderblue;
+}
+
+li.ttm-meta-line-contact {
+    color: slategray;
+    font-size: 18px;
+    padding: 0px;
+    margin: 1px;
+    font-style: oblique;
+    font-weight: 400;
+}
+
+span.contact-country {
+    margin: 9px;
+    font-size: 26px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px lightcoral;
+}
+
+spam.contact-details {
+    margin: 3px;
+    font-size: 17px;
+    padding: 0px;
+    color: maroon;
+}
+
+section.ttm-row.contact-form-section.clearfix {
+    margin-top: 178px;
+    margin-right: 0px;
+    margin-left: 3px;
+    padding: 0px;
+}
+
+footer.footer.widget-footer.clearfix {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.top-contact.ttm-highlight-left:after, .top-contact.ttm-highlight-right:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    width: 5000px;
+    height: 100%;
+    background: green;
+}
+
+span.quote-title {
+    color: black;
+}
+
+.col-lg-3.widget-area.ttm-bgcolor-grey {
+    background: aliceblue;
+}
+
+.featured-icon-box.left-icon.icon-align-top {
+    margin-bottom: 18px;
+}
+
+.site-main.services {
+    padding: 0px;
+    margin-top: 60px;
+}
+
+.ttm-bgcolor-skincolor.spacing-7.contact {
+    box-shadow: 5px 5px greenyellow;
+    background: indigo;
+    border-radius: 18px;
+}
+
+.featured-imagebox.featured-imagebox-post.card-header.text-success {
+    font-size: 20px;
+    font-family: sans-serif;
+    border-radius: 6px 6px;
+    box-shadow: 2px 2px palegreen;
+}
+
