@@ -26,3 +26,15 @@
     <meta name="{{ $class }}-title-{{ $loop->iteration }}" content="{{ $content->title ?? $content->service_name }}" />
 @endforeach
 @endif
+
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_US" />
+@if($title ?? '')
+<meta property="og:title" content="{{ $title }}" />
+@endif
+@if($description ?? '')
+<meta property="og:description" content="{{ Str::limit($description, 100) }}" />
+@endif
+@if(Request::url())
+<meta property="og:url" content="{{ Request::url() }}" />
+@endif

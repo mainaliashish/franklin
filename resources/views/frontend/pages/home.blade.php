@@ -25,18 +25,17 @@
                 <div class="tp-caption ttm-textcolor-skincolor tp-resizeme" id="slide-1-layer-1"
                     data-x="['left','left','center','center']" data-hoffset="['50','50','-628','-684']"
                     data-y="['top','top','middle','middle']" data-voffset="['159','159','-116','46']"
-                    data-fontsize="['14','14','12','11']" data-fontweight="['600','600','700','700']" data-width="none"
+                    data-fontsize="['34','14','12','11']" data-fontweight="['600','600','700','700']" data-width="none"
                     data-height="none" data-whitespace="nowrap" data-visibility="['on','on','off','off']"
                     data-type="text" data-responsive_offset="on"
                     data-frames='[{"delay":140,"speed":500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power0.easeIn"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
                     data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
-                    data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">HELPING
-                    YOU TO</div>
+                    data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]">{{ $about->site_name }}</div>
 
                 <!-- LAYER NR. 2 -->
                 <div class="tp-caption tp-resizeme" id="slide-1-layer-2" data-x="['left','left','center','center']"
                     data-hoffset="['50','50','0','0']" data-y="['top','top','middle','middle']"
-                    data-voffset="['185','185','-107','-87']" data-fontsize="['30','30','50','40']"
+                    data-voffset="['185','185','-107','-87']" data-fontsize="['20','18','18','18']"
                     data-lineheight="['75','75','75','60']" data-fontweight="['700','700','700','700']"
                     data-color="['rgb(255,255,255)','rgb(255,255,255)','rgb(255,255,255)','rgb(255,255,255)']"
                     data-width="none" data-height="none" data-whitespace="nowrap" data-type="text"
@@ -50,7 +49,7 @@
                 <!-- LAYER NR. 3 -->
                 <div class="tp-caption tp-resizeme" id="slide-1-layer-3" data-x="['left','left','center','center']"
                     data-hoffset="['50','50','0','0']" data-y="['top','top','middle','middle']"
-                    data-voffset="['257','257','-46','-38']" data-fontsize="['30','30','50','40']"
+                    data-voffset="['257','257','-46','-38']" data-fontsize="['20','20','20','20']"
                     data-lineheight="['35','35','75','60']" data-fontweight="['700','700','700','700']"
                     data-color="['rgb(255,255,255)','rgb(255,255,255)','rgb(255,255,255)','rgb(255,255,255)']"
                     data-width="none" data-height="none" data-whitespace="nowrap" data-type="text"
@@ -118,7 +117,7 @@
                         <!-- row -->
                         <!-- post-slide -->
                         <div class="services-slide owl-carousel owl-theme owl-loaded" data-item="3" data-nav="false"
-                            data-dots="false" data-auto="false">
+                            data-dots="false" data-auto="true">
                             <!-- featured-imagebox-post -->
                             @foreach($services as $service)
                             <div class="featured-imagebox featured-imagebox-services text-center">
@@ -258,7 +257,7 @@
             </div>
             <div class="row">
                 <div class="portfolio-slide owl-carousel owl-theme owl-loaded mt-5" data-item="3" data-nav="false"
-                    data-dots="false" data-auto="true">
+                    data-dots="false" data-auto="true" >
                     <!-- featured-imagebox -->
                     @foreach($popular_images as $img)
                     <div class="featured-imagebox featured-imagebox-portfolio ttm-box-view-top-image">
@@ -296,11 +295,20 @@
 
     @include('frontend.partials._blogs')
 
+    @include('frontend.partials._map', ["width"=> 600, "height"=> 190, "margin"=> -48])
+    
 
-    @include('frontend.partials._clients')
 
 </div>
 <!--site-main end-->
+@endsection
+
+@section('footerelements')
+<script>
+    $(document).ready(function () {
+        $('img').lazyload();
+    })
+</script>
 @endsection
 
 @section('meta_elements')

@@ -10,6 +10,12 @@ class Gallery extends Model
     use HasFactory;
     protected $fillable = ['title', 'image', 'is_featured'];
 
+
+    public static function hello()
+    {
+        dd('hello');
+    }
+
     public function getOnlyTitlesMetas()
     {
         $titles = $this->select('title', 'meta_title', 'meta_description', 'meta_tags')->get();

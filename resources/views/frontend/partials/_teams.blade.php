@@ -50,5 +50,6 @@
             </div><!-- row end -->
         </div>
     </section>
+</div>
     <!-- team-section end -->
 @endif

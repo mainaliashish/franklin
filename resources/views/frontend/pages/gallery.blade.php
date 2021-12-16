@@ -74,7 +74,7 @@
 
 @section('meta_elements')
     @include('frontend.partials._meta', [
-        'contents' => $gallery->getOnlyTitlesMetas(),
+        'contents' => $model->getOnlyTitlesMetas(),
         'class' => 'gallery',
     ])
 @endsection

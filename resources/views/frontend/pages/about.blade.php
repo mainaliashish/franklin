@@ -37,6 +37,7 @@
                 </div><!-- section title end -->
             </div>
             @include('frontend.partials._results')
+            
             <div class="row mt-100 res-991-mt-50">
                 @foreach($popular_services as $service)
                 <div class="col-md-4">
@@ -127,12 +128,8 @@
     </div>
 </section>
 <!-- services-section end -->
-
+<br />
 @include('frontend.partials._teams')
-
-<!--blog-text-section-->
-@include('frontend.partials._blogs')
-<!--blog-text-section end-->
 
 </div>
 <!--site-main end-->

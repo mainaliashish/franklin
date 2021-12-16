@@ -113,6 +113,7 @@
                     </div>
                 </div>
             
+                @include('frontend.partials._map')
         </section>
                 </div>
                

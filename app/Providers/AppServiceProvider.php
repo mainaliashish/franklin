@@ -13,6 +13,7 @@ use App\Models\TestPreparation;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -35,17 +36,36 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191); 
         Paginator::useBootstrap();
       
-        $about = About::first();
-        $site_logo = About::where('id', 1)->value('site_logo');
-        $studies_title = StudyAbroad::latest()->select('country_name', 'slug')->get();
-        $popular_services = Service::latest()->select('service_name', 'service_description', 'slug')->take(5)->get();
-        $tests_title = TestPreparation::latest()->select('test_name', 'slug')->get();
-        $latest_blogs = Blog::where('is_featured', 1)->latest()->inRandomOrder()->take(3)->get();
-        $team_sliders = Team::all();
-        $footer_contacts = Contact::latest()->take(3)->get();
-        $q = Inspiring::quote();
+        $about = cache()->remember('abouts', 60*60*24, function() {
+            return About::first();
+        });
+        $site_logo = cache()->remember('logo', 60*60*24, function() {
+            return About::where('id', 1)->value('site_logo');
+        });
+        $studies_title = cache()->remember('studies', 60*60*24, function() {
+            return StudyAbroad::latest()->select('country_name', 'slug')->get();
+        });
+        $popular_services = cache()->remember('services', 60*60*24, function() {
+            return Service::latest()->select('service_name', 'service_description', 'slug')->take(5)->get();
+        });
+        $tests_title = cache()->remember('tests', 60*60*24, function() { 
+            return TestPreparation::latest()->select('test_name', 'slug')->get();
+        });
+
+        $latest_blogs = cache()->remember('latest_blogs', 60*60*24, function() {
+            return Blog::where('is_featured', 1)->latest()->inRandomOrder()->take(3)->get();
+        });
+
+        $team_sliders = cache()->remember('teams', 60*60*24, function() {
+            return Team::all();
+        });
+        $footer_contacts = cache()->remember('contacts', 60*60*24, function() {
+            return Contact::latest()->take(3)->get();
+        });
+        // $q = Inspiring::quote();
         $result = Result::first();
         // dd($result);
         View::share([
@@ -56,7 +76,7 @@ class AppServiceProvider extends ServiceProvider
             'latest_blogs'  => $latest_blogs,
             'popular_services' => $popular_services,
             'team_sliders'      => $team_sliders,
-            'q'             => $q,
+            'q'             => $q ?? '',
             'footer_contacts'      => $footer_contacts,
             'result' => $result
         ]);

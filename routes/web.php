@@ -188,9 +188,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'backend'], function () {
 
 });
 
-Route::fallback(function () {
-    return view("errors.404");
-});
+// Route::fallback(function () {
+//     return view("errors.404");
+// });
 
 
 require __DIR__.'/auth.php';

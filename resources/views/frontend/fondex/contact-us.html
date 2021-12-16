@@ -252,9 +252,9 @@
                 <div class="row">
                         <div class="col-md-12">
                         <!--map-start-->
-                        <div class="map-wrapper">
-                            <div id="map_canvas"></div>
-                        </div>
+                        <!-- <div class="map-wrapper"> -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.378685517667!2d85.32096921506205!3d27.70559188279262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19e3441f1b35%3A0x4a594a452f6c53f7!2sFranklin%20Education%20And%20Marketing%20Consultancy!5e0!3m2!1sen!2snp!4v1626530838760!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <!-- </div> -->
                         <!--map-end-->
                     </div>
                 </div>
@@ -538,22 +538,6 @@
     <script src="js/main.js"></script>
     <script src="js/chart.js"></script>
 
-    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-    <script>
-
-        function initialize() {
-            var latlng = new google.maps.LatLng(-34.397, 150.644);
-            var myOptions = {
-                zoom: 8,
-                center: latlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var map = new google.maps.Map(document.getElementById("map_canvas"),
-                    myOptions);
-        }
-        google.maps.event.addDomListener(window, "load", initialize);
-
-    </script>
 
 
     <!-- Javascript end-->

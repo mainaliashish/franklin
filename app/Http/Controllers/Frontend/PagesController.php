@@ -24,22 +24,39 @@ class PagesController extends Controller
 {
     public function index()
     {
-        // $response = Http::get('https://zenquotes.io/api/random');
-        // $quote = $response->json();
-        // $q = '❝'. $quote[0]['q'] .'❞ - ✍ '. $quote[0]['a'];
-        $gallery = Gallery::where('is_featured', 1)->latest()->take(3)->get();
-        $popular_images = Gallery::where('is_featured', 1)->take(10)->get();
-        $slider_images = Slider::where('is_featured', 1)->latest()->take(6)->get();
-        $about = About::first();
-        $services = Service::latest()->take(5)->get();
-        $blogs = Blog::where('is_featured', 1)->latest()->take(3)->get();
+
+        $gallery = cache()->remember('gallery', 60*60*24, function() {
+            return Gallery::where('is_featured', 1)->latest()->take(3)->get();
+        });
+        $popular_images = cache()->remember('gallery', 60*60*24, function() {
+            return Gallery::where('is_featured', 1)->take(10)->get();
+        });
+        $slider_images = cache()->remember('sliders', 60*60*24, function() {
+            return Slider::where('is_featured', 1)->latest()->take(6)->get();
+        });
+        $about = cache()->remember('abouts', 60*60*24, function() {
+            return About::first();
+        });
+        
+        $services = cache()->remember('services', 60*60*24, function() {
+            return Service::latest()->take(5)->get();
+        });
+        
+        $blogs = cache()->remember('blogs', 60*60*24, function() {
+            return Blog::where('is_featured', 1)->latest()->take(3)->get();
+        });
 
         return view('frontend.pages.home', compact('gallery','popular_images', 'about', 'slider_images','services', 'blogs'));
     }
 
     public function blogs()
     {
-        $blogs = Blog::latest()->paginate(12);
+        $page = request()->get('page', 1);
+        $limit = request()->get('limit', 10);
+        $blogs = cache()->remember('blogs' . $page , 60*60*24, function() use ($limit) {
+            return Blog::latest()->paginate($limit);
+        });
+        
         return view('frontend.pages.blogs', compact('blogs'));
     }
 
@@ -129,7 +146,8 @@ class PagesController extends Controller
     public function gallery()
     {
         $gallery = Gallery::latest()->paginate(12);
-        return view('frontend.pages.gallery', compact('gallery'));        
+        $model = new Gallery;
+        return view('frontend.pages.gallery', compact('gallery', 'model'));        
     }
 
     public function ajaxContactForm(Request $request)
